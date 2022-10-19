@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление голых котят</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form th:object="${zoo}" method="post">
+    <input th:field="*{name}" type="text" name="name" placeholder="Имя животного"><br>
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red"></div>
+    <input th:field="*{description}" type="text" name="description" placeholder="Описание"><br>
+    <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}" style="color: red"></div>
+
+    <input th:field="*{age}" type="text" name="age" placeholder="Возраст"><br>
+    <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}" style="color: red"></div>
+
+    <input th:field="*{mass}" type="text" name="mass" placeholder="Масса"><br>
+    <div th:if="${#fields.hasErrors('mass')}" th:errors="*{mass}" style="color: red"></div>
+
+    <input type="submit"  value="Добавить животного">
+</form>
+<a href="/zoo">Go Back!</a>
+
+</body>
+</html>

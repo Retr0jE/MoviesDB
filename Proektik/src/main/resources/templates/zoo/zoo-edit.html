@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Редактирование ' + ${animal.name}"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+<div th:insert="fragments/header :: headerMain"></div>
+<div th:each="el : ${animal}">
+<form method="post">
+    <input type="text" name="name" th:value="${el.name}" placeholder="Имя животного"><br>
+    <input type="text" name="description" th:value="${animal.description}" placeholder="Описание"><br>
+    <input type="text" name="age" th:value="${el.age}" placeholder="Возраст"><br>
+    <input type="text" name="mass" th:value="${animal.mass}" placeholder="Масса"><br>
+    <input type="submit"  th:value="'Редактировать ' + ${el.name}" class="btn btn-primary">
+</form>
+<a th:href="'/zoo/detail/' + ${el.id}" class="btn btn-secondary">Go Back!</a>
+</div>
+
+</body>
+</html>

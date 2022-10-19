@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Голые котята в зоопарке</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<h1>Животные</h1>
+<a href="/zoo/add">Добавить животное</a>
+
+
+
+<div>
+    <div th:each="el : ${listAnimal}">
+     <h2 th:text="${el.name}"></h2>
+        <a th:href="'/zoo/detail/' + ${el.id}">Подробнее</a>
+    </div>
+</div>
+<form action="/zoo/filter" method="get">
+    <input type="text" name="searchName" placeholder="Поиск">
+    <input type="submit" placeholder="Найти">
+</form>
+
+
+</body>
+</html>
