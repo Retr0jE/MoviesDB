@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Добавление</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form method="post">
+    <input type="text" name="hall" placeholder="Зал"><br>
+    <input type="text" name="time" placeholder="Время"><br>
+    <select  name="cinema">
+        <div th:each="element : ${cinema}">
+            <option th:value="${element.id}" th:text="${element.name_cinema}"></option>
+        </div>
+    </select>
+    <br>
+    <button type="submit">Добавить</button>
+</form>
+</body>
+</html>

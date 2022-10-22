@@ -10,7 +10,9 @@
 
                     <li><a href="/movies" class="nav-link px-2 text-white">КИНО</a></li>
                     <li><a href="/movies/add" class="nav-link px-2 text-white">Добавить кино</a></li>
-
+                    <form th:action="@{/logout}" method="post">
+                       <li> <input class="nav-link px-2 text-white btn btn-dark" type="submit" value="Выйти" /></li>
+                    </form>
                 </ul>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">

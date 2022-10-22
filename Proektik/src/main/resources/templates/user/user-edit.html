@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Панель администратора</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+
+
+<form method="post">
+<div>
+  <div th:each="el : ${userOne}">
+    <input type="text" name="username" th:value="${el.username}">
+  </div>
+</div>
+  <div>
+    <div th:each="role: ${roleList}">
+      <div th:each="user: ${userOne}">
+        <input type="checkbox" name="roles[]" th:value="${role}" th:checked="${#lists.contains(user.roles, role)}">
+        <label th:text="${role}"></label>
+      </div>
+
+    </div>
+  </div>
+  <input type="submit" value="Изменить данные">
+</form>
+
+</body>
+</html>

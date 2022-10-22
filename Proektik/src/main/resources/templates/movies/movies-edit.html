@@ -22,7 +22,7 @@
     <div th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}" style="color: red"></div><br>
     <input type="text" th:field="*{country}" name="country"  placeholder="Страна производства">
     <div th:if="${#fields.hasErrors('country')}" th:errors="*{country}" style="color: red"></div><br>
-    <input type="number" th:field="*{budget}" name="budget" placeholder="Бюджет">
+    <input type="number" th:field="*{budget}" name="budget" placeholder="Бюджет"><br>
     <div th:if="${#fields.hasErrors('budget')}" th:errors="*{budget}" style="color: red"></div><br>
     <input type="submit" th:value="'Редактировать ' + *{name}" class="btn btn-success" value="Редактировать КИНО">
 </form>

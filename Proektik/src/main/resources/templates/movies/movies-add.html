@@ -25,12 +25,22 @@
     <input type="text" th:field="*{country}" name="country" placeholder="Страна производства">
     <div th:if="${#fields.hasErrors('country')}" th:errors="*{country}" style="color: red"></div><br>
 
-    <input type="number" th:field="*{budget}" name="budget" placeholder="Бюджет">
+    <input type="number" th:field="*{budget}" name="budget" placeholder="Бюджет"><br>
     <div th:if="${#fields.hasErrors('budget')}" th:errors="*{budget}" style="color: red"></div><br>
 
+    <select  name="sessions">
+        <div th:each="element : ${sessions}">
+            <option th:value="${element.id}" th:text="${element.hall}"></option>
+        </div>
+    </select><br>
+
     <input type="submit"  value="Добавить КИНО" class="btn btn-success"><br>
+
+
 </form>
 <a href="/movies" class="btn btn-danger">Выйти</a>
+<a href="/movies/add2" class="btn btn-danger">многие ко многим</a>
+<a href="/movies/onetoone" class="btn btn-danger">один к одному</a>
 
 </body>
 </html>

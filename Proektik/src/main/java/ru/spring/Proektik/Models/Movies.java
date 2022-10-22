@@ -2,11 +2,10 @@ package ru.spring.Proektik.Models;
 
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class Movies {
@@ -34,6 +33,15 @@ public class Movies {
     @NotNull(message = "Э")
     private Integer budget;
 
+    @ManyToMany
+    @JoinTable(name = "movies_cinema",
+            joinColumns = @JoinColumn(name = "movies_id"),
+            inverseJoinColumns = @JoinColumn(name = "cinema_id"))
+    private List<Cinema> cinema;
+
+    @ManyToOne(optional = true, cascade = CascadeType.ALL)
+    private Session session;
+
     public Movies()
     {
 
@@ -46,6 +54,14 @@ public class Movies {
        this.genre = genre;
        this.country = country;
        this.budget = budget;
+    }
+
+    public List<Cinema> getCinema() {
+        return cinema;
+    }
+
+    public void setCinema(List<Cinema> cinema) {
+        this.cinema = cinema;
     }
 
     public Long getId() {
@@ -94,5 +110,13 @@ public class Movies {
 
     public void setBudget(Integer budget) {
         this.budget = budget;
+    }
+
+    public Session getSession() {
+        return session;
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
     }
 }
